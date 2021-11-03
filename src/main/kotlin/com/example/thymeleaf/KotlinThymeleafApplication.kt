@@ -1,4 +1,4 @@
-package com.example.kotlinthymeleaf
+package com.example.thymeleaf
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
