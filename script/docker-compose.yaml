@@ -1,0 +1,23 @@
+# Use root/example as user/password credentials
+version: '3'
+
+services:
+  db:
+    # 'database'서비스에서 참조할 이미지
+    image: mariadb:10.7.1
+    container_name: mariadb_container
+    ports:
+      - "7777:3306"
+    restart: always
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      # 환경 설정에 필요한 설정들. server코드와 싱크를 맞추어야 한다.
+      MYSQL_ROOT_PASSWORD: lifemmo123!@#
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: lifemmo123!@#
+      TZ: UTC
+    volumes:
+        - ./mydb/:/docker-entrypoint-initdb.d
